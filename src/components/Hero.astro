@@ -1,0 +1,56 @@
+---
+import ProfileCard from "./ProfileCard.astro";
+---
+
+<section class="hero-section">
+    <h1>Trouvez (ou proposez) des missions tech en un clic</h1>
+    <p class="subtitle">
+        La marketplace qui connecte les porteurs d’affaires et les freelances du
+        numérique.
+    </p>
+
+    <div class="card-container">
+        <ProfileCard
+            title="Développeur"
+            description="Web, mobile, cloud... trouvez la mission qui vous correspond."
+            imageUrl="src/images/Rectangle (1).png"
+        />
+        <ProfileCard
+            title="Designer"
+            description="UI, UX, branding, prototypage... exprimez votre talent."
+            imageUrl="src/images/Rectangle.png"
+        />
+        <ProfileCard
+            title="Graphiste"
+            description="Identité visuelle, illustration, supports print & web."
+            imageUrl="src/images/unsplash_4wOkqiXNP7M.png"
+        />
+    </div>
+
+    <a href="#" class="button button-primary">Trouvez Votre Première Mission</a>
+</section>
+
+<style>
+    .hero-section {
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        color: #555;
+        margin-bottom: 3rem;
+    }
+
+    .card-container{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+</style>
