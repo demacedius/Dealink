@@ -1,5 +1,8 @@
 ---
 import ProfileCard from "./ProfileCard.astro";
+import devImage from '../../src/images/Rectangle (1).png'
+import designerImage from '../../src/images/Rectangle.png'
+import graphisteImage from '../../src/images/unsplash_4wOkqiXNP7M.png'
 ---
 
 <section class="hero-section">
@@ -13,17 +16,17 @@ import ProfileCard from "./ProfileCard.astro";
         <ProfileCard
             title="Développeur"
             description="Web, mobile, cloud... trouvez la mission qui vous correspond."
-            imageUrl="src/images/Rectangle (1).png"
+            image={{src: devImage, alt: "Illustration pour Développeur"}}
         />
         <ProfileCard
             title="Designer"
             description="UI, UX, branding, prototypage... exprimez votre talent."
-            imageUrl="src/images/Rectangle.png"
+            image={{src: designerImage, alt:"Illustration pour designer"}}
         />
         <ProfileCard
             title="Graphiste"
             description="Identité visuelle, illustration, supports print & web."
-            imageUrl="src/images/unsplash_4wOkqiXNP7M.png"
+            image={{src: graphisteImage, alt: "Illustration pour Graphiste"}}
         />
     </div>
 
