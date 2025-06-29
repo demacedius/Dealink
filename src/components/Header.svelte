@@ -1,9 +1,9 @@
 <script>
-    let isOpen = false;
+    import { isMenuOpen } from "../stores/MenueStore";
 
     function toggleMenu() {
-        isOpen = !isOpen;
-        console.log(`IsOpen: ${isOpen}`);
+        $isMenuOpen = !$isMenuOpen
+        
     }
 </script>
 
@@ -28,7 +28,7 @@
         <div class="bar"></div>
     </button>
 
-    {#if isOpen}
+    {#if $isMenuOpen}
         <nav class="mobile-nav">
             <ul>
                 <li><a href="#">Accueil</a></li>

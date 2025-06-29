@@ -1,4 +1,5 @@
 <script>
+    import { isMenuOpen } from "../stores/MenueStore";
     let isPorteur = false; // false = Freelance, true = Porteur d'affaires
 
     $: mainVerb = isPorteur ? "Proposez" : "Trouvez";
@@ -11,7 +12,7 @@
         La marketplace qui connecte les porteurs d'affaires et les freelances du
         numérique.
     </p>
-
+    {#if !$isMenuOpen}
     <div class="toggle-container">
         <span>Freelance</span>
         <label class="toggle-switch">
@@ -20,6 +21,7 @@
         </label>
         <span>Porteur d'affaires</span>
     </div>
+    {/if}
 </div>
 
 <style>
