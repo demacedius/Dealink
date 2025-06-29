@@ -3,14 +3,11 @@ import ProfileCard from "./ProfileCard.astro";
 import devImage from '../../src/images/Rectangle (1).png'
 import designerImage from '../../src/images/Rectangle.png'
 import graphisteImage from '../../src/images/unsplash_4wOkqiXNP7M.png'
+import InteractiveHero from './InteractiveHero.svelte'
 ---
 
 <section class="hero-section">
-    <h1>Trouvez (ou proposez) des missions tech en un clic</h1>
-    <p class="subtitle">
-        La marketplace qui connecte les porteurs d’affaires et les freelances du
-        numérique.
-    </p>
+    <InteractiveHero client:visible/>
 
     <div class="card-container">
         <ProfileCard
