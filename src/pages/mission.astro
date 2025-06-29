@@ -1,0 +1,101 @@
+    ---
+
+    import Layout from '../layouts/Layout.astro';
+    
+
+    const missions = [
+      { id: 1, title: 'Création d\'un site vitrine pour un restaurant', budget: '1200€', tags: ['Web', 'Design', 'React'] },
+      { id: 2, title: 'Développement d\'une application mobile de suivi sportif', budget: '3500€', tags: ['Mobile', 'Svelte', 'API'] },
+      { id: 3, title: 'Refonte du logo et de la charte graphique', budget: '800€', tags: ['Branding','Design'] },
+      { id: 4, title: 'Optimisation SEO d\'un site e-commerce', budget: '1500€', tags: ['SEO', 'Marketing'] },
+    ];
+    ---
+    
+    <Layout title="Missions - Dealink">
+      <div class="container">
+        <main class="mission-page">
+          <section class="hero-missions">
+            <h1>Trouvez votre prochaine mission</h1>
+            <p>Parcourez les projets proposés par notre communauté de porteurs d'affaires.</p>
+          </section>
+    
+          <section class="mission-list">
+            {missions.map(mission => (
+              <a href={`/mission/${mission.id}`} class="mission-card">
+                <div class="card-content">
+                  <h3>{mission.title}</h3>
+                  <p class="budget">Budget: {mission.budget}</p>
+                  <div class="tags">
+                    {mission.tags.map(tag => <span class="tag">{tag}</span>)}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </section>
+        </main>
+      </div>
+    </Layout>
+    
+    <style>
+      .mission-page {
+        padding-block: 2rem;
+      }
+    
+      .hero-missions {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+    
+      .hero-missions h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+    
+      .mission-list {
+        display: grid;
+        grid-template-columns: 1fr; /* Une colonne pour le mobile first */
+        gap: 1.5rem;
+      }
+    
+      .mission-card {
+        display: block;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease-in-out;
+      }
+    
+      .mission-card:hover {
+        transform: translateY(-5px);
+      }
+    
+      .mission-card h3 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+    
+      .budget {
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+      }
+    
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    
+      .tag {
+        background-color: #e3eaf8; /* Bleu clair */
+        color: #333;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+   1</style>
+

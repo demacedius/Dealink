@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Tarifs">
+    <div class="container">
+        <main class="tarifs-page">
+            <section class="hero-tarifs">
+                <h1>Nos tarifs sont simples et transparents</h1>
+                <p>
+                    Pas de frais cachés, pas d'abonnement. Juste une commission
+                    claire sur les missions réussies.
+                </p>
+            </section>
+
+            <section class="pricing-cards">
+                <div class="card">
+                    <h2>Freelance</h2>
+                    <p class="price">0%</p>
+                    <p class="description">
+                        L'inscription et l'utilisation de Dealink sont
+                        totalement gratuites pour les freelances.
+                    </p>
+                    <ul>
+                        <li>✅ Accès à toutes les missions</li>
+                        <li>✅ Profil freelance personnalisable</li>
+                        <li>✅ Contrats générés automatiquement</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>Porteur d'affaires</h2>
+                    <p class="price">10%</p>
+                    <p class="description">
+                        Une commission unique de 10% est prélevée sur le montant
+                        de la mission, uniquement si elle est acceptée et payée.
+                    </p>
+                    <ul>
+                        <li>✅ Publication de missions illimitée</li>
+                        <li>✅ Accès à un réseau de freelances qualifiés</li>
+                        <li>✅ Gestion des paiements sécurisée</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</Layout>
+
+<style>
+    .tarifs-page {
+        padding-block: 2rem;
+        text-align: center;
+    }
+
+    .hero-tarifs h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .pricing-cards {
+        display: grid;
+        grid-template-columns: 1fr; /* Une colonne pour le mobile first */
+        gap: 2rem;
+        margin-top: 4rem;
+    }
+
+    .card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        text-align: left;
+    }
+
+    .card h2 {
+        font-size: 1.8rem;
+        color: #8b5cf6; /* Violet */
+    }
+
+    .price {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+
+    .card ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 2rem;
+    }
+
+    .card li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Styles pour les écrans plus larges */
+    @media (min-width: 768px) {
+        .pricing-cards {
+            grid-template-columns: repeat(
+                2,
+                1fr
+            ); /* Deux colonnes sur tablette et plus */
+        }
+    }
+</style>
