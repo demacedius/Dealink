@@ -1,0 +1,151 @@
+---
+// src/pages/mission/[id].astro
+import Layout from "../../layouts/Layout.astro";
+
+const missions = [
+  {
+    id: 1,
+    title: "Création d'un site vitrine pour un restaurant",
+    budget: "1200€",
+    tags: ["Web", "Design", "React"],
+    description:
+      'Le restaurant "Le Délice" souhaite une refonte complète de son site web pour attirer plus de clients. Le site doit être moderne, responsive et inclure un menu en ligne.',
+  },
+  {
+    id: 2,
+    title: "Développement d'une application mobile de suivi sportif",
+    budget: "3500€",
+    tags: ["Mobile", "Svelte", "API"],
+    description:
+      "Nous recherchons un développeur pour créer une application iOSet Android permettant de suivre ses performances de course à pied. Connexion avec des APIs de météo et de cartographie nécessaire.",
+  },
+  {
+    id: 3,
+    title: "Refonte du logo et de la charte graphique",
+    budget: "800€",
+    tags: ["Branding", "Design"],
+    description:
+      "Notre startup dans le secteur de la fintech a besoin d'une nouvelle identitévisuelle forte et professionnelle pour se démarquer.",
+  },
+  {
+    id: 4,
+    title: "Optimisation SEO d'un site e-commerce",
+    budget: "1500€",
+    tags: ["SEO", "Marketing"],
+    description:
+      "Audit complet et mise en place des recommandations pour améliorer notre classement sur lesmoteurs de recherche pour notre boutique de vêtements en ligne.",
+  },
+];
+export function getStaticPaths() {
+  return missions.map((mission) => ({
+    params: { id: mission.id.toString() },
+  }));
+}
+
+const { id } = Astro.params;
+const mission = missions.find((m) => m.id.toString() === id);
+
+if (!mission) {
+  return Astro.redirect("/404");
+}
+
+---
+
+<Layout title={`Mission: ${mission.title}`}>
+  <div class="container">
+    <main class="mission-detail-page">
+      <a href="/mission" class="back-link"
+        >&larr; Retour à la liste des missions</a
+      >
+
+      <h1>{mission.title}</h1>
+
+      <div class="meta-info">
+        <span class="budget">Budget: {mission.budget}</span>
+        <div class="tags">
+          {mission.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      </div>
+
+      <div class="mission-description">
+        <h2>Description du projet</h2>
+        <p>{mission.description}</p>
+      </div>
+
+      <a href="#" class="button button-primary apply-button"
+        >Postuler à cette mission</a
+      >
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .mission-detail-page {
+    padding-block: 2rem 4rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .budget {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background-color: #e3eaf8;
+    color: #333;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .mission-description h2 {
+    margin-bottom: 1rem;
+  }
+
+  .mission-description p {
+    line-height: 1.6;
+  }
+
+  .apply-button {
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+    }
+    .meta-info {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+</style>
