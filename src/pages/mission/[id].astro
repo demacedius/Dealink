@@ -1,69 +1,54 @@
 ---
 // src/pages/mission/[id].astro
-import Layout from "../../layouts/Layout.astro";
+import { createClient } from '@supabase/supabase-js';
+import Layout from '../../layouts/Layout.astro';
 
-const missions = [
-  {
-    id: 1,
-    title: "Création d'un site vitrine pour un restaurant",
-    budget: "1200€",
-    tags: ["Web", "Design", "React"],
-    description:
-      'Le restaurant "Le Délice" souhaite une refonte complète de son site web pour attirer plus de clients. Le site doit être moderne, responsive et inclure un menu en ligne.',
-  },
-  {
-    id: 2,
-    title: "Développement d'une application mobile de suivi sportif",
-    budget: "3500€",
-    tags: ["Mobile", "Svelte", "API"],
-    description:
-      "Nous recherchons un développeur pour créer une application iOSet Android permettant de suivre ses performances de course à pied. Connexion avec des APIs de météo et de cartographie nécessaire.",
-  },
-  {
-    id: 3,
-    title: "Refonte du logo et de la charte graphique",
-    budget: "800€",
-    tags: ["Branding", "Design"],
-    description:
-      "Notre startup dans le secteur de la fintech a besoin d'une nouvelle identitévisuelle forte et professionnelle pour se démarquer.",
-  },
-  {
-    id: 4,
-    title: "Optimisation SEO d'un site e-commerce",
-    budget: "1500€",
-    tags: ["SEO", "Marketing"],
-    description:
-      "Audit complet et mise en place des recommandations pour améliorer notre classement sur lesmoteurs de recherche pour notre boutique de vêtements en ligne.",
-  },
-];
-export function getStaticPaths() {
-  return missions.map((mission) => ({
+// Cette fonction est autonome et a sa propre initialisation de Supabase
+export async function getStaticPaths() {
+  const supabase = createClient(
+    import.meta.env.PUBLIC_SUPABASE_URL,
+    import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+  );
+  const { data: missions, error } = await supabase.from('missions').select('id');
+
+  if (error || !missions) {
+    return [];
+  }
+
+  return missions.map(mission => ({
     params: { id: mission.id.toString() },
   }));
 }
 
+// On initialise Supabase une deuxième fois pour le reste du script
+const supabase = createClient(
+  import.meta.env.PUBLIC_SUPABASE_URL,
+  import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+);
+
 const { id } = Astro.params;
-const mission = missions.find((m) => m.id.toString() === id);
+const { data: mission, error } = await supabase
+  .from('missions')
+  .select('*')
+  .eq('id', id)
+  .single();
 
-if (!mission) {
-  return Astro.redirect("/404");
+if (error || !mission) {
+  return Astro.redirect('/404');
 }
-
 ---
 
 <Layout title={`Mission: ${mission.title}`}>
   <div class="container">
     <main class="mission-detail-page">
-      <a href="/mission" class="back-link"
-        >&larr; Retour à la liste des missions</a
-      >
-
+      <a href="/mission" class="back-link">&larr; Retour à la liste des missions</a>
+      
       <h1>{mission.title}</h1>
-
+      
       <div class="meta-info">
-        <span class="budget">Budget: {mission.budget}</span>
+        <span class="budget">Budget: {mission.budget} €</span>
         <div class="tags">
-          {mission.tags.map((tag) => <span class="tag">{tag}</span>)}
+          {mission.tags && mission.tags.map((tag: string) => <span class="tag">{tag}</span>)}
         </div>
       </div>
 
@@ -72,16 +57,19 @@ if (!mission) {
         <p>{mission.description}</p>
       </div>
 
-      <a href="#" class="button button-primary apply-button"
-        >Postuler à cette mission</a
-      >
+      <a href="#" class="button button-primary apply-button">Postuler à cette mission</a>
     </main>
   </div>
 </Layout>
 
 <style>
   .mission-detail-page {
-    padding-block: 2rem 4rem;
+    padding: 2rem; /* Adjusted padding for a card-like appearance */
+    background-color: white; /* White background for the card */
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+    margin-top: 2rem; /* Add some space from the top */
+    margin-bottom: 2rem; /* Add some space at the bottom */
   }
 
   .back-link {
