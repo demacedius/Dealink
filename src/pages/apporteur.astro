@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Monétisez vos missions refusées | Dealink Apporteur+">
+  <main class="container">
+    <section class="hero">
+      <h1 class="title">Monétisez les missions que vous refusez.</h1>
+      <p class="subtitle">Postez vos missions, recevez des freelances qualifiés et encaissez votre commission sans effort.</p>
+      <Button text="Devenir apporteur d’affaires" url="#" className="button-green"/>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Votre frustration aujourd’hui</h2>
+      <div class="grid-3">
+        <div class="card">"Je reçois des demandes de missions alors que je suis déjà full-time."</div>
+        <div class="card">"Je refuse des opportunités sans rien en tirer."</div>
+        <div class="card">"Je perds du temps à chercher à qui les recommander."</div>
+      </div>
+    </section>
+
+    <section class="section bg-gray">
+      <h2 class="section-title">Ce que Dealink Vous apporte?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Vous postez les missions que vous ne pouvez pas prendre</h3>
+        </div>
+        <div class="card">
+          <h3>Vous recevez rapidement des freelances intéressés</h3>
+        </div>
+        <div class="card">
+          <h3>Dealink génère un contrat type adapté à la mission</h3>
+        </div>
+        <div class="card">
+          <h3>Vous encaissez votre commission et rendez service à votre client</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Comment ça marche ?</h2>
+      <div class="grid">
+        <div class="step">
+          <h3>Publiez la mission</h3>
+          <p>que vous refusez</p>
+        </div>
+        <div class="step">
+          <h3>Recevez des freelances</h3>
+          <p>intéressés avec leurs contacts</p>
+        </div>
+        <div class="step">
+          <h3>Mettez-les en relation</h3>
+          <p>avec votre client</p>
+        </div>
+        <div class="step">
+          <h3>Encaissez votre commission</h3>
+          <p>Dealink s’occupe du contrat</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-gray">
+        <h2 class="section-title">Offre Dealink Apporteur+</h2>
+        <div class="offer-card">
+            <p class="offer-title">Abonnement mensuel ou annuel</p>
+            <p class="offer-price">(ex : 29€/mois ou 290€/an)</p>
+            <ul class="offer-features">
+                <li>Génération automatique de contrat type</li>
+                <br>
+                <li>Mise en relation directe avec des freelances qualifiés</li>
+                <br>
+                <li>Support Dealink si besoin pour la facturation</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section cta">
+      <h2 class="section-title">Devenir apporteur d’affaires dès aujourd’hui</h2>
+      <Button text="Devenir apporteur d’affaires" url="#" className="button-green"/>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .card, .feature, .step, .offer-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .feature {
+    background-color: transparent;
+    box-shadow: none;
+    font-weight: 500;
+  }
+  .step h3, .card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .offer-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .offer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .offer-price {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .offer-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  .bg-gray {
+    background-color: transparent;
+  }
+  .cta {
+    text-align: center;
+  }
+  .button-green {
+      background-color: #48bb78;
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .title {
+      font-size: 3.5rem;
+    }
+  }
+</style>

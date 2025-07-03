@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Missions freelance sérieuses et bien payées | Dealink">
+  <main class="container">
+    <section class="hero">
+      <h1 class="title">Recevez des missions sérieuses et bien payées.</h1>
+      <p class="subtitle">Des clients vérifiés. Des missions pré-qualifiées. Ne perdez plus de temps sur des annonces fake.</p>
+      <Button text="Rejoindre Dealink gratuitement" url="#" />
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Vos frustrations aujourd’hui</h2>
+      <div class="grid">
+        <div class="card">"Des missions de plus en plus rares."</div>
+        <div class="card">"La majorité des annonces sont fake ou sous-payées."</div>
+        <div class="card">"Sur Upwork, c’est la course au moins-disant face à l’offshore."</div>
+        <div class="card">"Même quand un client répond, c’est déjà une victoire."</div>
+      </div>
+    </section>
+
+    <section class="section bg-gray">
+      <h2 class="section-title">Ce que Dealink Vous apporte?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Des missions qualifiées, sans perte de temps</h3>
+          <p>Accédez à des offres ciblées selon vos compétences et disponibilités. Chaque mission publiée est vérifiée et claire sur les conditions, pour aller droit au but.</p>
+        </div>
+        <div class="card">
+          <h3>Un contrat généré en 1 clic</h3>
+          <p>Formalisez chaque mission facilement grâce au générateur de contrat intégré: tout est écrit, validé, sans paperasse inutile.</p>
+        </div>
+        <div class="card">
+          <h3>Une rémunération transparente et sécurisée</h3>
+          <p>Le partage entre freelance et porteur d'affaires est clairement défini sur chaque mission. Aucun frais caché: tout est précisé dès le début.</p>
+        </div>
+        <div class="card">
+          <h3>Une communauté engagée</h3>
+          <p>Rejoignez un réseau de freelances et de porteurs d'affaires qui partagent les mêmes valeurs de sérieux, d'entraide et de professionnalisme.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Comment ça marche ?</h2>
+      <div class="grid-3">
+        <div class="step">
+          <h3>Créez votre profil</h3>
+          <p>(en quelques minutes)</p>
+        </div>
+        <div class="step">
+          <h3>Recevez des missions qualifiées</h3>
+          <p>directement par email</p>
+        </div>
+        <div class="step">
+          <h3>Travaillez avec des clients sérieux</h3>
+          <p>qui respectent votre valeur</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <h2 class="section-title">Inscrivez-vous gratuitement dès aujourd’hui</h2>
+      <Button text="Rejoindre Dealink gratuitement" url="#" />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .card, .feature, .step {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .feature {
+    background-color: transparent;
+    box-shadow: none;
+    font-weight: 500;
+  }
+  .step h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .bg-gray {
+    background-color: transparent;
+  }
+  .cta {
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .title {
+      font-size: 3.5rem;
+    }
+  }
+</style>

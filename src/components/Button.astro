@@ -1,0 +1,13 @@
+---
+interface Props {
+    text: string;
+    url: string;
+    className?: string;
+}
+
+const { text, url, className } = Astro.props;
+---
+
+<a href={url} class:list={["button", "button-primary", className]}>
+    {text}
+</a>

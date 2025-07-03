@@ -14,7 +14,7 @@
     </a>
     <nav class="desktop-nav">
         <ul>
-            <li><a href="#">Accueil</a></li>
+            <li><a href="/">Accueil</a></li>
             <li><a href="/Tarif">Tarif</a></li>
             <li><a href="/mission">Mission</a></li>
             <li><a href="#">Profil</a></li>
@@ -31,7 +31,7 @@
     {#if $isMenuOpen}
         <nav class="mobile-nav">
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="/">Accueil</a></li>
                 <li><a href="/Tarif">Tarif</a></li>
                 <li><a href="/mission">Mission</a></li>
                 <li><a href="#">Profil</a></li>

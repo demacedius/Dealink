@@ -1,20 +1,51 @@
 ---
-import Benefits from "../components/Benefits.astro";
-import FinalCTA from "../components/FinalCTA.astro";
-import Hero from "../components/Hero.astro";
-import HowToUse from "../components/HowToUse.astro";
-import WhyDealink from "../components/WhyDealink.astro";
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 ---
 
-<Layout title="Dealink">
-	<div class="container">
-		<main>
-			<Hero />
-			<WhyDealink />
-			<HowToUse />
-			<Benefits />
-			<FinalCTA />	
-		</main>
-	</div>
+<Layout title="Bienvenue chez Dealink">
+  <main class="container">
+    <div class="hero-content">
+      <h1 class="title">Vous êtes?</h1>
+      <div class="buttons-container">
+        <Button text="Freelance" url="/freelance" />
+        <Button text="Apporteur d'affaire" url="/apporteur" className="button-green"/>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .hero-content {
+    text-align: center;
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .button-green {
+      background-color: #48bb78;
+  }
+
+  @media (min-width: 768px) {
+    .buttons-container {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+</style>
