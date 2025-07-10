@@ -1,0 +1,30 @@
+---
+interface Props {
+	title: string;
+	problem: string;
+	solution: string;
+	problemTitle: string;
+	solutionTitle: string;
+}
+
+const { title, problem, solution, problemTitle, solutionTitle } = Astro.props;
+---
+
+<section class="text-center space-y-8 pt-16">
+  <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-400">{title}</h2>
+  <div class="diff aspect-[16/9] w-full max-w-4xl mx-auto">
+    <div class="diff-item-1">
+      <div class="bg-red-200 text-red-800 text-xl font-black grid place-content-center">
+        <h3 class="text-2xl font-bold mb-4">{problemTitle}</h3>
+        <p>{problem}</p>
+      </div>
+    </div>
+    <div class="diff-item-2">
+      <div class="bg-green-200 text-green-800 text-xl font-black grid place-content-center">
+        <h3 class="text-2xl font-bold mb-4">{solutionTitle}</h3>
+        <p>{solution}</p>
+      </div>
+    </div>
+    <div class="diff-resizer"></div>
+  </div>
+</section>
